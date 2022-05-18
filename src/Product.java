@@ -17,6 +17,10 @@ public class Product {
         return "\nname='" + name + ", count=" + count + ", price=" + price;
     }
 
+    public String getName() {
+        return name;
+    }
+
     static public void add(ArrayList<Product> products) {
 
         Scanner scanner = new Scanner(System.in);
@@ -34,31 +38,25 @@ public class Product {
     static public void remove(ArrayList<Product> products) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите название продукта");
-        int i = -1;
+
         String name = scanner.nextLine();
         for (Product product : products) {
-            i++;
-//            products.get(i);//Получение элемента
 
-            if (products.get(i).name.equals(name)) {
-                products.remove(i);
+            String nameChecked = product.getName();
+            if (nameChecked.equals(name)) {
+                products.remove(product);
                 System.out.println("Успешно удалено");
                 System.out.println("Ваша корзина" + (products));
                 break;
-            }
-            else{
+            } else {
                 System.out.println("Соре соре продукт не найден");
 
             }
-//            System.out.println(products.get(i));
 
 
         }
     }
 
-//    public String getName(ArrayList<Product> products) {
-////        return products.get(products.indexOf(product)).name;
-//        return " ";
-//    }
 
 }
+
